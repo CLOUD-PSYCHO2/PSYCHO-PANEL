@@ -5,10 +5,10 @@ config = oci.config.from_file()
 compute_client = oci.core.ComputeClient(config)
 
 compartment_id = config["tenancy"]
-availability_domain = "ap-singapore-1-AD-1" # আপনার রিজিয়ন অনুযায়ী এডির নাম
+availability_domain = "ap-singapore-2-AD-1" 
 shape = "VM.Standard.A1.Flex"
-subnet_id = "আপনার_সাবনেট_আইডি" 
-image_id = "আপনার_ইমেজ_আইডি" 
+subnet_id = "ocid1.subnet.oc1.ap-singapore-2.aaaaaaaahjzfhmd5clp3szw3cnlfivgnm3mfgpyxxghlilejj5k7bekmrwza" 
+image_id = "ocid1.image.oc1.ap-singapore-2.aaaaaaaayw5v6l7h2w63q6b42b6p7z2x5c7v8b9n0m1k2l3j4h5g6f7d8s9a"
 
 def create_instance():
     while True:
@@ -36,10 +36,9 @@ def create_instance():
             print("Instance created successfully!", response.data)
             break
         except Exception as e:
-            print(f"Error (Out of capacity usually): {e}")
-            print("Retrying in 30 seconds...")
-            time.sleep(30)
+            print(f"Error: {e}")
+            print("Retrying in 90 seconds...")
+            time.sleep(90)
 
 if __name__ == "__main__":
     create_instance()
-
