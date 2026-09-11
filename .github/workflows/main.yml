@@ -36,4 +36,4 @@ jobs:
 
       - name: Run Create VM Script
         run: |
-          python create_vm.py
+          python PSYCHO.py
